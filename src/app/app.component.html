@@ -1,0 +1,16 @@
+<div fxLayout="column" fxFlexFill>
+  <div fxLayout="row" fxLayoutAlign="center">
+    <h1>OP stackoverflow viewer</h1>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="start">
+    <app-search></app-search>
+  </div>
+  <div fxLayout="row" fxLayoutGap="2%">
+    <div fxLayout="column" fxFlex="40">
+      <app-questions-list></app-questions-list>
+    </div>
+    <div fxFlex="60" class="question_info">
+      <app-question-page></app-question-page>
+    </div>
+  </div>
+</div>

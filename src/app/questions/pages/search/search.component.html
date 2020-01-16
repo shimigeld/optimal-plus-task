@@ -1,0 +1,9 @@
+<form [formGroup]="group">
+  <mat-form-field>
+    <input matInput type="text" formControlName="input" placeholder="Please enter your Search">
+    <button mat-flat-button color="primary" matSuffix (click)="onSearchClick()" [disabled]="this.group.invalid">Search</button>
+    <mat-error *ngIf="group.controls.input.hasError('required')">
+      Search input is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+</form>
