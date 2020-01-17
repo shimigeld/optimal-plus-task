@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { AppState } from 'src/app/reducers';
+import { Component } from '@angular/core';
+
 import { Store } from '@ngrx/store';
 import { getQuestionsList } from '../../store/actions/questions.actions';
-import { SearchService } from '../../services/search.service';
+import { AppState } from 'src/app/reducers';
 
 @Component({
   selector: 'app-search',
@@ -12,7 +12,7 @@ import { SearchService } from '../../services/search.service';
 })
 export class SearchComponent {
   public group: FormGroup;
-  constructor(fb: FormBuilder, private store: Store<AppState>, private searchService: SearchService) {
+  constructor(fb: FormBuilder, private store: Store<AppState>) {
     this.group = fb.group({
      input: ['', Validators.required]
     });

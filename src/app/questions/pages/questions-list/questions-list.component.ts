@@ -1,10 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+
+import { QuestionItem } from '../../models/question';
+
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/reducers';
-import { selectAllQuestions, showLoader } from '../../store/selectors/questions.selector';
-import { filter } from 'rxjs/operators';
-import { QuestionItem } from '../../models/question';
 import { questionClick } from '../../store/actions/questions.actions';
+import { selectAllQuestions, showLoader } from '../../store/selectors/questions.selector';
+
+import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -24,8 +27,8 @@ export class QuestionsListComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.questionsSubscription = this.store.select(selectAllQuestions)
-    .pipe(filter(res => res !== null && res !== undefined)).subscribe(res => {
-      this.questions = res as Array<QuestionItem>;
+    .pipe(filter(res => res !== null && res !== undefined)).subscribe((res: Array<QuestionItem>) => {
+      this.questions = res;
     });
 
     this.loaderSubscription = this.store.select(showLoader).subscribe((isLoading: boolean) => {
@@ -41,6 +44,5 @@ export class QuestionsListComponent implements OnInit, OnDestroy {
   public ngOnDestroy(): void {
     this.loaderSubscription.unsubscribe();
     this.questionsSubscription.unsubscribe();
-
   }
 }

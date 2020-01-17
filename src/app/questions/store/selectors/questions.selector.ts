@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+
 import { adapter, QuestionsState } from '../reducers/questions.reducer';
-import { AppState } from 'src/app/reducers';
 
 const {
   selectAll,
