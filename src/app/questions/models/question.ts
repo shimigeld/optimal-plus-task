@@ -4,5 +4,4 @@ export interface QuestionItem {
   score: number;
   link: string;
   title: string;
-  vxcvxcv
 }
