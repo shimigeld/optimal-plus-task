@@ -2,3 +2,7 @@ mat-list-item {
   border: 1px solid black;
   cursor: pointer;
 }
+
+.selected-item {
+  background-color: yellow;
+}

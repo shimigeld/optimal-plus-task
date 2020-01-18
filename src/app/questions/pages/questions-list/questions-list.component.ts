@@ -17,6 +17,7 @@ import { Subscription } from 'rxjs';
 })
 export class QuestionsListComponent implements OnInit, OnDestroy {
   public showLoader = false;
+  public selectedIndex: number = null;
   public questions: Array<QuestionItem>;
 
   private loaderSubscription: Subscription;
@@ -37,7 +38,8 @@ export class QuestionsListComponent implements OnInit, OnDestroy {
   }
 
 
-  public onQuestionClick(question: QuestionItem): void {
+  public onQuestionClick(question: QuestionItem, index: number): void {
+    this.selectedIndex = index;
     this.store.dispatch(questionClick({question}));
   }
 
